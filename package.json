@@ -7,6 +7,10 @@
     "build":"parcel build index.html",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SurjithPeriyasamy/namaste-react.git"
+  },
   "author": "Surjith",
   "license": "ISC",
   "devDependencies": {
