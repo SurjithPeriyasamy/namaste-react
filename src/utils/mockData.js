@@ -1,49 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://png2.cleanpng.com/sh/6fdcbcb30d7bf08e793a87c4cef788dd/L0KzQYm3U8MyN6ltiZH0aYP2gLBuTfNifJZ3gdDwLXbyf7W0gB9ueKZ5feQ2aXPyfsS0jP9od15qjtd3dD3wcbBohBVubZ95RdVqdHX1ebBuTcViapc5UKlsZEG7RIWATsc2PGc3UaI9MUW1QoWBVcM4Omk6UKQ3cH7q/kisspng-catering-food-computer-icons-logo-event-management-catering-5abf487cd18447.7546290415224853728582.png"
-        ></img>
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>Contact Us</li>
-          <li>About Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestroCard = ({ resData }) => {
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
-    resData.info;
-  return (
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-      <img
-        alt="res-image"
-        className="res-logo"
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating} stars</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{sla.slaString}</h4>
-    </div>
-  );
-};
-
 const reslist = [
   {
     info: {
@@ -1628,26 +1582,5 @@ const reslist = [
     },
   },
 ];
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {reslist.map((restaurent) => (
-          <RestroCard key={restaurent.info.id} resData={restaurent} />
-        ))}
-      </div>
-    </div>
-  );
-};
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppLayout />);
+export default reslist;
