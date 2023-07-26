@@ -1,5 +1,5 @@
 import { CDN_URL } from "../utils/constants";
-const RestroCard = ({ resData }) => {
+const RestaurantCard = ({ resData }) => {
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
     resData.info;
   return (
@@ -18,4 +18,4 @@ const RestroCard = ({ resData }) => {
   );
 };
 
-export default RestroCard;
+export default RestaurantCard;
