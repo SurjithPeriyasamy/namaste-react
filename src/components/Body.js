@@ -2,7 +2,6 @@ import RestaurantCard from "./RestaurantCard";
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import useRestaurants from "../utils/useRestaurants";
 import { useEffect, useState } from "react";
 
 export default Body = () => {
@@ -32,9 +31,6 @@ export default Body = () => {
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-
-  // const listOfRestaurant = useRestaurants();
-  // console.log(listOfRestaurant);
 
   const onlineStatus = useOnlineStatus();
 
