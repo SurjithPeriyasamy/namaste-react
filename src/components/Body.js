@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withLocality } from "./RestaurantCard";
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -34,28 +34,29 @@ export default Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
+  const RestaurantWithLocal = withLocality(RestaurantCard);
+
   if (onlineStatus === false) {
     return <h1>Please Check Your Internet Connection!!! </h1>;
   }
 
   //Conditional Rendering
-
   return listOfRestaurant.length == 0 ? (
     <ShimmerUi />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search-container">
+      <div className="filter flex items-center">
+        <div className="search-container m-4 p-4">
           <input
             type="text"
-            className="search-input"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
-            className="search-btn"
+            className="bg-green-100 px-4 py-2 m-4 rounded-lg"
             onClick={() => {
               const searchOutput = listOfRestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -68,7 +69,7 @@ export default Body = () => {
         </div>
         <div className="rating-container">
           <button
-            className="top-rate"
+            className="px-4 py-2 bg-gray-200 rounded-lg"
             onClick={() => {
               const topRes = listOfRestaurant.filter(
                 (res) => res.info.avgRating > 4
@@ -81,14 +82,18 @@ export default Body = () => {
         </div>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filterRestaurant.map((restaurant) => {
           return (
             <Link
               to={"restaurant/" + restaurant.info.id}
               key={restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} />
+              {restaurant.info.locality == "Erode" ? (
+                <RestaurantWithLocal resData={restaurant} />
+              ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
             </Link>
           );
         })}
