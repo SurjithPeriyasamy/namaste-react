@@ -82,7 +82,7 @@ export default Body = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {filterRestaurant.map((restaurant) => {
           return (
             <Link
