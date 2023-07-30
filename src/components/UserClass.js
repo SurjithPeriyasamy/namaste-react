@@ -6,44 +6,36 @@ class UserClass extends React.Component {
 
     this.state = {
       userInfo: {
-        login: "empty",
+        name: "empty",
         location: "empty location",
       },
     };
-    console.log(this.state.userInfo.login + " child cons");
+    // console.log(this.state.userInfo.name + " child cons");
   }
 
   async componentDidMount() {
     const data = await fetch("https://api.github.com/users/SurjithPeriyasamy");
     const json = await data.json();
-    console.log(json.login);
+    console.log(json);
 
     this.setState({
       userInfo: json,
     });
-    this.timer = setInterval(() => {
-      console.log("timer");
-    }, 1000);
-    console.log(this.state.userInfo.login + " child mount");
-  }
-
-  componentDidUpdate() {
-    console.log("update");
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer);
-    console.log("willl Unmount");
+    // console.log(this.state.userInfo.name + " child mount");
   }
 
   render() {
-    const { login, location } = this.state.userInfo;
-    console.log(login + " child render");
+    const { name, location } = this.state.userInfo;
+    // console.log(name + " child render");
     return (
       <div className="user-card">
         <h2>
-          Name : {login} <small>(class Component)</small>
+          Name : {name} <small>(class Component)</small>
         </h2>
+        <img
+          className="w-52"
+          src="https://avatars.githubusercontent.com/u/135200324?v=4"
+        />
         <h3>Location : {location} </h3>
         <h4>Contact : @surjith007</h4>
       </div>

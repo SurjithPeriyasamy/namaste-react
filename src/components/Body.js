@@ -2,14 +2,17 @@ import RestaurantCard, { withLocality } from "./RestaurantCard";
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import UserContext from "../utils/UserContext";
 
-export default Body = () => {
+const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
 
   const [filterRestaurant, setFilterRestaurant] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
@@ -32,13 +35,13 @@ export default Body = () => {
     );
   };
 
-  const onlineStatus = useOnlineStatus();
-
   const RestaurantWithLocal = withLocality(RestaurantCard);
 
   if (onlineStatus === false) {
     return <h1>Please Check Your Internet Connection!!! </h1>;
   }
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   //Conditional Rendering
   return listOfRestaurant.length == 0 ? (
@@ -48,12 +51,9 @@ export default Body = () => {
       <div className="filter flex items-center">
         <div className="search-container m-4 p-4">
           <input
-            type="text"
             className="border border-solid border-black"
             value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
+            onChange={(e) => setSearchText(e.target.value)}
           />
           <button
             className="bg-green-100 px-4 py-2 m-4 rounded-lg"
@@ -69,16 +69,25 @@ export default Body = () => {
         </div>
         <div className="rating-container">
           <button
-            className="px-4 py-2 bg-gray-200 rounded-lg"
+            className="px-4 py-2 bg-gray-200 rounded-lg mr-2"
             onClick={() => {
               const topRes = listOfRestaurant.filter(
                 (res) => res.info.avgRating > 4
               );
-              setListOfRestaurant(topRes);
+              setFilterRestaurant(topRes);
             }}
           >
             Top Rated Restaurant
           </button>
+        </div>
+        <div>
+          <label> UserName : </label>
+          <input
+            type="text"
+            className="border border-black"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
       </div>
 
@@ -101,3 +110,5 @@ export default Body = () => {
     </div>
   );
 };
+
+export default Body;
