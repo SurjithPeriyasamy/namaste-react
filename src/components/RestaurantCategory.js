@@ -16,7 +16,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex, arrow }) => {
         <span>
           {title} ({itemCards.length})
         </span>
-        <span>⬇️</span>
+        <span>{showItems === true ? "⬆️" : "⬇️"}</span>
       </div>
       {showItems === true ? <ItemList items={itemCards} /> : showItems}
     </div>

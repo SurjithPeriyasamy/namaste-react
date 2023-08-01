@@ -14,6 +14,8 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -37,15 +39,14 @@ const Body = () => {
 
   const RestaurantWithLocal = withLocality(RestaurantCard);
 
-  if (onlineStatus === false) {
-    return <h1>Please Check Your Internet Connection!!! </h1>;
-  }
-
-  const { loggedInUser, setUserName } = useContext(UserContext);
-
+  // if (onlineStatus === false) {
+  //   return <h1>Please Check Your Internet Connection!!! </h1>;
+  // }
   //Conditional Rendering
   return listOfRestaurant.length == 0 ? (
     <ShimmerUi />
+  ) : onlineStatus === false ? (
+    <h1>Please Check Your Internet Connection!!! </h1>
   ) : (
     <div className="body">
       <div className="filter flex items-center">
@@ -91,7 +92,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-evenly">
         {filterRestaurant.map((restaurant) => {
           return (
             <Link

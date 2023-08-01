@@ -3,11 +3,14 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
-
+import useOnlineStatus from "../utils/useOnlineStatus";
 const RestaurantMenu = () => {
   const { resId } = useParams(); //it is a object
 
   const [showIndex, setShowIndex] = useState(null);
+
+  const onlineStatus = useOnlineStatus();
+
   const resInfo = useRestaurantMenu(resId);
 
   if (resInfo === null) {
@@ -22,7 +25,10 @@ const RestaurantMenu = () => {
         c?.card?.card?.["@type"] ==
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  return (
+
+  return onlineStatus === false ? (
+    <h1>Please Check your Internet Connection</h1>
+  ) : (
     <div className="text-center w-6/12 m-auto">
       <h1 className="font-bold text-lg m-4">{name}</h1>
       <p className="font-semibold">
