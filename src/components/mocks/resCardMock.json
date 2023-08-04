@@ -1,0 +1,81 @@
+{
+  "info": {
+    "id": "582222",
+    "name": "Thulasi Veg Cafe-Gh",
+    "cloudinaryImageId": "i7lriqtto2wbnpktvqbo",
+    "locality": "Brough Road",
+    "areaName": "Erode Fort",
+    "costForTwo": "₹230 for two",
+    "cuisines": ["South Indian", "Snacks", "Beverages"],
+    "avgRating": 3.9,
+    "feeDetails": {
+      "restaurantId": "582222",
+      "fees": [
+        {
+          "name": "BASE_DISTANCE",
+          "fee": 900
+        },
+        {
+          "name": "BASE_TIME"
+        },
+        {
+          "name": "ANCILLARY_SURGE_FEE"
+        }
+      ],
+      "totalFee": 900
+    },
+    "parentId": "355781",
+    "avgRatingString": "3.9",
+    "totalRatingsString": "1K+",
+    "sla": {
+      "deliveryTime": 22,
+      "serviceability": "SERVICEABLE",
+      "slaString": "22 mins",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2023-08-03 22:30:00",
+      "opened": true
+    },
+    "badges": {},
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {},
+        "textBased": {},
+        "textExtendedBadges": {}
+      }
+    },
+    "aggregatedDiscountInfoV3": {
+      "header": "50% OFF",
+      "subHeader": "UPTO ₹100"
+    },
+    "orderabilityCommunication": {
+      "title": {},
+      "subTitle": {},
+      "message": {},
+      "customIcon": {}
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {}
+  },
+  "analytics": {
+    "context": "seo-data-dd610685-54a1-4013-8dfd-98d9641929f4"
+  },
+  "cta": {
+    "link": "https://www.swiggy.com/restaurants/thulasi-veg-cafe-gh-brough-road-erode-fort-erode-582222",
+    "text": "RESTAURANT_MENU",
+    "type": "WEBLINK"
+  },
+  "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

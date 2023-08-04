@@ -53,6 +53,7 @@ const Body = () => {
         <div className="search-container m-4 p-4">
           <input
             className="border border-solid border-black"
+            data-testid="searchInput"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
@@ -78,7 +79,7 @@ const Body = () => {
               setFilterRestaurant(topRes);
             }}
           >
-            Top Rated Restaurant
+            Top Rated Restaurants
           </button>
         </div>
         <div>
@@ -99,7 +100,7 @@ const Body = () => {
               to={"restaurant/" + restaurant.info.id}
               key={restaurant.info.id}
             >
-              {restaurant.info.locality == "Erode" ? (
+              {restaurant.info.locality == "Brough Road" ? (
                 <RestaurantWithLocal resData={restaurant} />
               ) : (
                 <RestaurantCard resData={restaurant} />

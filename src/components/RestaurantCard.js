@@ -9,7 +9,10 @@ const RestaurantCard = ({ resData }) => {
   const { loggedInUser } = useContext(UserContext);
 
   return (
-    <div className="res-card p-4 m-4 w-[260px] h-96 bg-gray-100 hover:bg-gray-200">
+    <div
+      data-testid="resCard"
+      className="res-card p-4 m-4 w-[260px] h-96 bg-gray-100 hover:bg-gray-200"
+    >
       <img
         alt="res-image"
         className="rounded-lg w-full h-36"
@@ -27,15 +30,15 @@ const RestaurantCard = ({ resData }) => {
 };
 
 export const withLocality = (RestaurantCard) => {
-  return (props) => {
-    // console.log({ props });
-    // console.log({ ...props });
+  return ({ resData }) => {
+    const { locality } = resData.info;
+    // console.log(resData);
     return (
       <div>
         <label className="absolute  m-4 py-4 px-6 rounded-lg bg-black text-white">
-          {props.resData.info.locality}
+          {locality}
         </label>
-        <RestaurantCard {...props} />
+        <RestaurantCard resData={resData} />
       </div>
     );
   };

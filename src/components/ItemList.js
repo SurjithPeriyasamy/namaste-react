@@ -15,6 +15,7 @@ const ItemList = ({ items }) => {
           item.card.info;
         return (
           <div
+            data-testid="foodItems"
             key={id}
             className="ml-10 mr-2 my-2 p-2 border-b-2 border-gray-400 text-left flex justify-between"
           >
@@ -28,7 +29,7 @@ const ItemList = ({ items }) => {
               {/* <div></div> */}
               {imageId ? <img src={CDN_URL + imageId} /> : <div></div>}
               <button
-                className="absolute z-10 -bottom-1 left-[60px]  bg-black text-green-600 rounded-md p-1 px-2 "
+                className="absolute z-10 -bottom-1 left-[60px]  bg-white text-green-600 rounded-md p-1 px-2 "
                 onClick={() => handleAdditem(item)}
               >
                 Add +
