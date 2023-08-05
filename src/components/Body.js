@@ -14,7 +14,7 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-  const { loggedInUser, setUserName } = useContext(UserContext);
+  const { loggedInUser, setUserName, loggedBtn } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -49,16 +49,17 @@ const Body = () => {
     <h1>Please Check Your Internet Connection!!! </h1>
   ) : (
     <div className="body">
-      <div className="filter flex items-center">
-        <div className="search-container m-4 p-4">
+      <div className="flex items-center flex-col sm:mt-72 md:mt-60 mb-10 w-full xl:mt-44 ">
+        <div className="mt-4 md:mt-0 md:mx-6 flex justify-center  w-full ">
           <input
-            className="border border-solid border-black"
+            className="w-5/12 px-4 py-2 border placeholder:text-gray-600 border-r-0 border-solid border-red-500 rounded-l-lg focus:outline-none"
             data-testid="searchInput"
+            placeholder="Search a restaurant"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
-            className="bg-green-100 px-4 py-2 m-4 rounded-lg"
+            className="bg-red-500 text-white ease-linear duration-200 hover:bg-green-800 px-4 py-2 rounded-r-lg"
             onClick={() => {
               const searchOutput = listOfRestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -69,27 +70,32 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="rating-container">
-          <button
-            className="px-4 py-2 bg-gray-200 rounded-lg mr-2"
-            onClick={() => {
-              const topRes = listOfRestaurant.filter(
-                (res) => res.info.avgRating > 4
-              );
-              setFilterRestaurant(topRes);
-            }}
-          >
-            Top Rated Restaurants
-          </button>
-        </div>
-        <div>
-          <label> UserName : </label>
-          <input
-            type="text"
-            className="border border-black"
-            value={loggedInUser}
-            onChange={(e) => setUserName(e.target.value)}
-          />
+        <div className="my-6 mx-6 flex flex-wrap lg:justify-between w-[47%] sm:flex-col sm:items-center xl:flex-row">
+          <div>
+            <button
+              className="px-8 py-2  bg-yellow-400 rounded-lg mr-2 sm:mb-4 lg:mb-none hover:bg-red-500 hover:text-white ease-linear duration-200"
+              onClick={() => {
+                const topRes = listOfRestaurant.filter(
+                  (res) => res.info.avgRating > 4
+                );
+                setFilterRestaurant(topRes);
+              }}
+            >
+              Top Rated Restaurants
+            </button>
+          </div>
+          <div>
+            <label className="pr-2 text-base font-medium"> UserName </label>
+            <input
+              type="text"
+              placeholder="Enter Your Name"
+              className="border border-red-600 rounded-lg py-2 px-4 placeholder:text-gray-600 focus:outline-none"
+              value={loggedInUser}
+              onChange={(e) =>
+                loggedBtn == "Logout" && setUserName(e.target.value)
+              }
+            />
+          </div>
         </div>
       </div>
 

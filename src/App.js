@@ -16,17 +16,26 @@ import Cart from "./components/Cart";
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
 
+  const [logBtn, setLogBtn] = useState("");
+
   useEffect(() => {
     //Make an Api call And send message and password
     const data = {
-      name: "Surjith P",
+      sign: "Login",
     };
-    setUserName(data.name);
+    setLogBtn(data.sign);
   }, []);
   return (
     <Provider store={appStore}>
-      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-        <div className="app">
+      <UserContext.Provider
+        value={{
+          loggedInUser: userName,
+          setUserName,
+          loggedBtn: logBtn,
+          setLogBtn,
+        }}
+      >
+        <div className="app box-border">
           <Header />
           <Outlet />
         </div>

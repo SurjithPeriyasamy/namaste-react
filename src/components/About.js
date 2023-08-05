@@ -14,14 +14,16 @@ class About extends Component {
   render() {
     console.log("parent render");
     return (
-      <div className="about">
-        <UserContext.Consumer>
-          {({ loggedInUser }) => (
-            <h1 className="font-bold text-xl">{loggedInUser}</h1>
-          )}
-        </UserContext.Consumer>
-        <h1>Front-End Developer</h1>
-        <UserClass />
+      <div className=" h-screen">
+        <div className="mx-auto">
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h1 className="font-bold text-xl">{loggedInUser}</h1>
+            )}
+          </UserContext.Consumer>
+          <h1>Front-End Developer</h1>
+          <UserClass />
+        </div>
       </div>
     );
   }
