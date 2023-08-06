@@ -49,7 +49,7 @@ const Body = () => {
     <h1>Please Check Your Internet Connection!!! </h1>
   ) : (
     <div className="body">
-      <div className="flex items-center flex-col sm:mt-72 md:mt-60 mb-10 w-full xl:mt-44 ">
+      <div className="flex items-center flex-col mb-10 w-full ">
         <div className="mt-4 md:mt-0 md:mx-6 flex justify-center  w-full ">
           <input
             className="w-5/12 px-4 py-2 border placeholder:text-gray-600 border-r-0 border-solid border-red-500 rounded-l-lg focus:outline-none"
@@ -73,7 +73,7 @@ const Body = () => {
         <div className="my-6 mx-6 flex flex-wrap lg:justify-between w-[47%] sm:flex-col sm:items-center xl:flex-row">
           <div>
             <button
-              className="px-8 py-2  bg-yellow-400 rounded-lg mr-2 sm:mb-4 lg:mb-none hover:bg-red-500 hover:text-white ease-linear duration-200"
+              className="px-8 py-2 bg-red-500 rounded-lg mr-2 sm:mb-4 lg:mb-none hover:bg-green-700 text-white ease-linear duration-200"
               onClick={() => {
                 const topRes = listOfRestaurant.filter(
                   (res) => res.info.avgRating > 4
@@ -88,7 +88,7 @@ const Body = () => {
             <label className="pr-2 text-base font-medium"> UserName </label>
             <input
               type="text"
-              placeholder="Enter Your Name"
+              placeholder="Login & Enter your name"
               className="border border-red-600 rounded-lg py-2 px-4 placeholder:text-gray-600 focus:outline-none"
               value={loggedInUser}
               onChange={(e) =>

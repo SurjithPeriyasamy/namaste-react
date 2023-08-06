@@ -33,7 +33,7 @@ class UserClass extends React.Component {
           Name : {name} <small>(class Component)</small>
         </h2>
         <img
-          className="w-52"
+          className="w-52 m-3 rounded-lg shadow-cyan-200 shadow-lg"
           src="https://avatars.githubusercontent.com/u/135200324?v=4"
         />
         <h3>Location : {location} </h3>

@@ -18,10 +18,10 @@ const Header = () => {
   //console.log(cartItems);
 
   return (
-    <div className="flex shadow-lg shadow-slate-300 sm:h-fit  bg-white mb-2 sm:fixed z-10 right-0 left-0 top-0 items-center flex-col sm:flex-row sm:justify-between">
-      <div className=" flex flex-col items-center shrink-0 p-1">
+    <div className="flex shadow-lg shadow-slate-300 sm:h-fit md-h-28  bg-white md:fixed z-10 right-0 left-0 top-0 items-center flex-col sm:flex-row sm:justify-between">
+      <div className=" flex flex-col items-center shrink-0 p-2 ">
         <Link to="/">
-          <img className="w-full h-24" src={LOGO_URL} />
+          <img className="w-full h-20 md:hover:animate-bounce" src={LOGO_URL} />
         </Link>
         <h3 className="font-bold text-lg italic">
           Food <span className="text-red-800">Gear</span>
@@ -50,14 +50,19 @@ const Header = () => {
           <li className="p-3 m-3 hover:bg-red-500 hover:text-white hover:rounded-lg ease-linear duration-200">
             <button
               onClick={() => {
-                loggedBtn == "Login" ? setLogBtn("Logout") : setLogBtn("Login");
+                if (loggedBtn == "Login") {
+                  setLogBtn("Logout");
+                } else {
+                  setLogBtn("Login");
+                  setUserName("");
+                }
               }}
             >
               {loggedBtn}
             </button>
           </li>
           <li className="p-3 m-3">
-            {loggedBtn == "Login" ? setUserName("") : "🙋‍♂️ " + loggedInUser}
+            {loggedBtn == "Login" ? "Default User" : "🙋‍♂️ " + loggedInUser}
           </li>
         </ul>
       </div>

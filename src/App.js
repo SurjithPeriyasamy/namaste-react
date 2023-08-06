@@ -37,7 +37,9 @@ const AppLayout = () => {
       >
         <div className="app box-border">
           <Header />
-          <Outlet />
+          <div className="md:mt-56 xl:mt-44">
+            <Outlet />
+          </div>
         </div>
       </UserContext.Provider>
     </Provider>
