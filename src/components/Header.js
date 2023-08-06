@@ -18,7 +18,7 @@ const Header = () => {
   //console.log(cartItems);
 
   return (
-    <div className="flex shadow-lg shadow-slate-300 sm:h-fit md-h-28  bg-white md:fixed z-10 right-0 left-0 top-0 items-center flex-col sm:flex-row sm:justify-between">
+    <div className="flex shadow-md shadow-gray-500 sm:h-fit md-h-28  bg-white md:fixed z-10 right-0 left-0 top-0 items-center flex-col sm:flex-row sm:justify-between">
       <div className=" flex flex-col items-center shrink-0 p-2 ">
         <Link to="/">
           <img className="w-full h-20 md:hover:animate-bounce" src={LOGO_URL} />

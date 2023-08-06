@@ -73,7 +73,7 @@ const Body = () => {
         <div className="my-6 mx-6 flex flex-wrap lg:justify-between w-[47%] sm:flex-col sm:items-center xl:flex-row">
           <div>
             <button
-              className="px-8 py-2 bg-red-500 rounded-lg mr-2 sm:mb-4 lg:mb-none hover:bg-green-700 text-white ease-linear duration-200"
+              className="px-8 py-2 bg-red-500 rounded-lg mr-2 sm:mb-4 xl:mb-0 hover:bg-green-700 text-white ease-linear duration-200"
               onClick={() => {
                 const topRes = listOfRestaurant.filter(
                   (res) => res.info.avgRating > 4
