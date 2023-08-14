@@ -1,13 +1,11 @@
-import { useState, useContext } from "react";
-import { LOGO_URL } from "../utils/constants";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
-  //const [logBtn, setLogBtn] = useState("Login");
-
   const onlineStatus = useOnlineStatus();
 
   const { loggedInUser, setUserName, loggedBtn, setLogBtn } =
