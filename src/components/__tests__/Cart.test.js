@@ -15,7 +15,7 @@ global.fetch = jest.fn(() =>
   })
 );
 
-it("Should render Eggs Category inside the restaurantMenu component", async () => {
+it("Should render kaadai Category inside the restaurantMenu component", async () => {
   await act(async () =>
     render(
       <BrowserRouter>

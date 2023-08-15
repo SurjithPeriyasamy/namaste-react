@@ -38,10 +38,6 @@ const Body = () => {
   };
 
   const RestaurantWithLocal = withLocality(RestaurantCard);
-
-  // if (onlineStatus === false) {
-  //   return <h1>Please Check Your Internet Connection!!! </h1>;
-  // }
   //Conditional Rendering
   return listOfRestaurant.length == 0 ? (
     <ShimmerUi />
