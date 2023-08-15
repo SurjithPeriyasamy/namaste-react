@@ -5,6 +5,8 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "jest",
     "watch-test": "jest --watch"
   },
@@ -12,6 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/SurjithPeriyasamy/namaste-react.git"
   },
+  "homepage": "http://SurjithPeriyasamy.github.io/namaste-react",
   "author": "Surjith",
   "license": "ISC",
   "devDependencies": {
@@ -20,6 +23,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
     "babel-jest": "^29.6.2",
+    "gh-pages": "^6.0.0",
     "jest": "^29.6.2",
     "jest-environment-jsdom": "^29.6.2",
     "parcel": "^2.9.3",
