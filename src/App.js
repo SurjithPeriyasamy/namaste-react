@@ -12,9 +12,12 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import useOnlineStatus from "./utils/useOnlineStatus";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
+
+  const onlineStatus = useOnlineStatus();
 
   const [logBtn, setLogBtn] = useState("");
 
@@ -38,7 +41,11 @@ const AppLayout = () => {
         <div className="app box-border">
           <Header />
           <div className="md:mt-56 xl:mt-44">
-            <Outlet />
+            {onlineStatus === false ? (
+              <h1>Please Check Your Internet Connection!!! </h1>
+            ) : (
+              <Outlet />
+            )}
           </div>
         </div>
       </UserContext.Provider>

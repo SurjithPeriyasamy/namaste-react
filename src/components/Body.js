@@ -1,7 +1,6 @@
 import RestaurantCard, { withLocality } from "./RestaurantCard";
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../utils/UserContext";
 
@@ -12,13 +11,21 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
-  const onlineStatus = useOnlineStatus();
-
   const { loggedInUser, setUserName, loggedBtn } = useContext(UserContext);
-
   useEffect(() => {
-    fetchData();
-  }, []);
+    const timer = setTimeout(() => {
+      if (listOfRestaurant.length === 0) {
+        fetchData();
+      } else {
+        setFilterRestaurant(
+          listOfRestaurant.filter((res) =>
+            res.info.name.toLowerCase().includes(searchText.toLowerCase())
+          )
+        );
+      }
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [searchText]);
 
   const fetchData = async () => {
     const data = await fetch(
@@ -41,8 +48,6 @@ const Body = () => {
   //Conditional Rendering
   return listOfRestaurant.length == 0 ? (
     <ShimmerUi />
-  ) : onlineStatus === false ? (
-    <h1>Please Check Your Internet Connection!!! </h1>
   ) : (
     <div className="body">
       <div className="flex items-center flex-col mb-10 w-full ">

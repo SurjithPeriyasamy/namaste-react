@@ -32,7 +32,5 @@ it("Should filter the TopRated Restaurant", async () => {
 
   fireEvent.click(filterbtn);
   const cardsAfterFilter = screen.getAllByTestId("resCard");
-
-  console.log(cardsAfterFilter);
   expect(cardsAfterFilter.length).toBe(3);
 });
