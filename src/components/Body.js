@@ -12,17 +12,18 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const { loggedInUser, setUserName, loggedBtn } = useContext(UserContext);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (listOfRestaurant.length === 0) {
-        fetchData();
-      } else {
-        setFilterRestaurant(
-          listOfRestaurant.filter((res) =>
-            res.info.name.toLowerCase().includes(searchText.toLowerCase())
-          )
-        );
-      }
+      return setFilterRestaurant(
+        listOfRestaurant.filter((res) =>
+          res.info.name.toLowerCase().includes(searchText.toLowerCase())
+        )
+      );
     }, 200);
     return () => clearTimeout(timer);
   }, [searchText]);
@@ -99,7 +100,6 @@ const Body = () => {
           </div>
         </div>
       </div>
-
       <div className="flex flex-wrap justify-evenly">
         {filterRestaurant.map((restaurant) => {
           return (

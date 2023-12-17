@@ -22,7 +22,7 @@ const Header = () => {
           <img className="w-full h-20 md:hover:animate-bounce" src={LOGO_URL} />
         </Link>
         <h3 className="font-bold text-lg italic">
-          Food <span className="text-red-800">Gear</span>
+          SD <span className="text-red-800">Food</span>
         </h3>
       </div>
       <div>
